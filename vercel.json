@@ -1,0 +1,10 @@
+{
+  "buildCommand": "node generate-blogs.js",
+  "outputDirectory": ".",
+  "rewrites": [
+    {
+      "source": "/:slug.html",
+      "destination": "/blog-post.html"
+    }
+  ]
+}

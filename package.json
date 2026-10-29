@@ -1,0 +1,16 @@
+{
+  "name": "aura-hair-replacement",
+  "version": "1.0.0",
+  "description": "AURA Hair Replacement Clinic Website & Static Blog Generator",
+  "main": "generate-blogs.js",
+  "scripts": {
+    "start": "python3 -m http.server 8080",
+    "serve": "python3 -m http.server 8080",
+    "studio": "cd studio && npm run dev",
+    "generate-blogs": "node generate-blogs.js",
+    "build": "node generate-blogs.js"
+  },
+  "keywords": ["hair-patch", "delhi", "hair-replacement", "sanity"],
+  "author": "AURA Clinic",
+  "license": "ISC"
+}

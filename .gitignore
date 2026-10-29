@@ -1,0 +1,23 @@
+# Dependencies
+node_modules/
+studio/node_modules/
+
+# Sanity & Build
+.sanity/
+studio/.sanity/
+studio/dist/
+
+# Vercel & Environments
+.vercel/
+studio/.vercel/
+.env*
+!.env.example
+
+# OS files
+.DS_Store
+Thumbs.db
+*.log
+
+# Raw Design files
+Brand Guide with copyright/
+*.ai

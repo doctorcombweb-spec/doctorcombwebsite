@@ -763,12 +763,8 @@ async function runGenerator() {
     };
   });
 
-  // 3. Merge: Live posts take priority, followed by base curated articles
-  const articlesMap = new Map();
-  BASE_ARTICLES.forEach(a => articlesMap.set(a.slug, a));
-  liveArticles.forEach(a => articlesMap.set(a.slug, a));
-
-  const allArticles = Array.from(articlesMap.values());
+  // 3. Live Sanity posts are the single source of truth when present; otherwise fallback to base curated articles
+  const allArticles = liveArticles.length > 0 ? liveArticles : BASE_ARTICLES;
   console.log(`📝 Total articles to build: ${allArticles.length}`);
 
   // 4. Generate standalone .html file for each article
@@ -780,6 +776,41 @@ async function runGenerator() {
     fs.writeFileSync(filePath, htmlContent, 'utf8');
     console.log(`  ✓ Generated: ${fileName}`);
   });
+
+  // 4b. Pre-render all articles directly into blogs.html for instantaneous SEO and visual completeness
+  const blogsHtmlPath = path.join(__dirname, 'blogs.html');
+  if (fs.existsSync(blogsHtmlPath)) {
+    let blogsHtml = fs.readFileSync(blogsHtmlPath, 'utf8');
+    const cardsHtml = allArticles.map((article, idx) => {
+      const rawCat = (article.category || '').toLowerCase().replace(/[^a-z0-9]/g, '');
+      let normCat = 'guides';
+      if (rawCat.includes('solut') || rawCat.includes('bond') || rawCat.includes('patch')) normCat = 'hair-solutions';
+      else if (rawCat.includes('care') || rawCat.includes('style') || rawCat.includes('mainten')) normCat = 'care-tips';
+      else normCat = 'guides';
+
+      return `        <!-- Card ${idx + 1}: ${article.title} -->
+        <a href="${article.slug}.html" class="editorial-blog-card" data-category="${normCat}" id="blog-card-${article.slug}">
+          <div class="editorial-card-media">
+            <img src="${article.img}" alt="${article.title}" class="editorial-card-img" loading="lazy">
+          </div>
+          <div class="editorial-card-body">
+            <span class="editorial-card-tag">${article.category}</span>
+            <h2 class="editorial-card-title">${article.title}</h2>
+            <p class="editorial-card-excerpt">
+              ${article.excerpt}
+            </p>
+            <span class="editorial-card-link">READ MORE →</span>
+          </div>
+        </a>`;
+    }).join('\n\n');
+
+    blogsHtml = blogsHtml.replace(
+      /(<div class="blog-editorial-grid" id="blogGridContainer"[^>]*>)[\s\S]*?(<\/div>\s*<\/div>\s*<\/main>)/i,
+      `$1\n\n${cardsHtml}\n\n      $2`
+    );
+    fs.writeFileSync(blogsHtmlPath, blogsHtml, 'utf8');
+    console.log(`  ✓ Updated blogs.html with all ${allArticles.length} live articles.`);
+  }
 
   // 5. Auto-Generate Dynamic sitemap.xml
   const today = new Date().toISOString().split('T')[0];

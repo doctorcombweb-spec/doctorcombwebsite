@@ -16,6 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initBlogSystem();
   initSingleBlogPostPage();
   initInstagramSection();
+  loadSanityBlogs();
 });
 
 /* --------------------------------------------------------------------------

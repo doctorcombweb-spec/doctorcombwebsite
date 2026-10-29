@@ -795,12 +795,13 @@ async function loadSanityBlogs() {
     if (data && data.result && data.result.length > 0) {
       console.log(`[Sanity CMS] Loaded ${data.result.length} live articles from project ${SANITY_CONFIG.projectId}`);
       
-      // Transform and merge Sanity posts into BLOG_ARTICLES
+      // Transform live Sanity posts into BLOG_ARTICLES
+      const liveArticles = {};
       data.result.forEach(post => {
         const slug = post.slug || post._id;
         const formattedDate = post.date ? new Date(post.date).toLocaleDateString('en-US', { month: 'short', year: 'numeric' }) : 'Recent';
         
-        BLOG_ARTICLES[slug] = {
+        liveArticles[slug] = {
           slug: slug,
           title: post.title,
           category: post.category || 'Guide',
@@ -815,6 +816,9 @@ async function loadSanityBlogs() {
           content: portableTextToHtml(post.body)
         };
       });
+
+      // Update in-memory articles with live database articles
+      BLOG_ARTICLES = liveArticles;
 
       // Refresh UI with live Sanity data
       renderDynamicBlogCards();
@@ -851,19 +855,14 @@ function portableTextToHtml(blocks) {
 }
 
 /**
- * Re-render blog grid on blogs.html or index.html if live Sanity articles arrive
+ * Re-render blog grid on blogs.html or index.html with live Sanity articles
  */
 function renderDynamicBlogCards() {
   const container = document.getElementById('blogGridContainer');
   if (!container) return;
 
-  // Preserve pre-rendered curated cards on blogs.html unless container is explicitly marked dynamic
-  if (container.children.length > 0 && !container.hasAttribute('data-dynamic')) {
-    initBlogSystem();
-    return;
-  }
-
   const articleKeys = Object.keys(BLOG_ARTICLES);
+  if (!articleKeys.length) return;
   container.innerHTML = articleKeys.map(key => {
     const item = BLOG_ARTICLES[key];
     const rawCat = (item.category || '').toLowerCase().replace(/[^a-z0-9]/g, '');

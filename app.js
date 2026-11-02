@@ -4,6 +4,9 @@
  */
 
 document.addEventListener('DOMContentLoaded', () => {
+  if (typeof initGlobalLayout === 'function') {
+    initGlobalLayout();
+  }
   initHeroCarousel();
   initMobileMenu();
   initComparisonSlider();
@@ -474,7 +477,7 @@ function handleReviewSubmit(e) {
 }
 
 function escapeHtml(str) {
-  return str.replace(/[&<>'"]/g, 
+  return str.replace(/[&<>'"]/g,
     tag => ({
       '&': '&amp;',
       '<': '&lt;',
@@ -839,13 +842,13 @@ async function loadSanityBlogs() {
     const data = await res.json();
     if (data && data.result && data.result.length > 0) {
       console.log(`[Sanity CMS] Loaded ${data.result.length} live articles from project ${SANITY_CONFIG.projectId}`);
-      
+
       // Transform live Sanity posts into BLOG_ARTICLES
       const liveArticles = {};
       data.result.forEach(post => {
         const slug = post.slug || post._id;
         const formattedDate = post.date ? new Date(post.date).toLocaleDateString('en-US', { month: 'short', year: 'numeric' }) : 'Recent';
-        
+
         liveArticles[slug] = {
           slug: slug,
           title: post.title,
@@ -955,11 +958,10 @@ function renderHomepageBlogCards() {
           <span class="blog-badge-tag">${item.category || 'Guide'}</span>
         </div>
         <div class="blog-card-body">
-          <div class="blog-meta-date">${item.date || 'Recent'} • ${item.readTime || '5 min read'}</div>
+          <div class="blog-meta-date">${item.date || 'Recent'}</div>
           <h3 class="blog-card-title">${item.title}</h3>
           <p class="blog-card-excerpt">${item.excerpt || ''}</p>
           <div class="blog-card-footer">
-            <span style="font-size: 0.84rem; color: #7A6652;">${item.author || 'Dr. Meera Sharma'}</span>
             <span class="blog-read-btn">Read Article →</span>
           </div>
         </div>
@@ -1052,7 +1054,7 @@ function initSingleBlogPostPage() {
 
   const params = new URLSearchParams(window.location.search);
   let requestedSlug = params.get('slug');
-  
+
   if (!requestedSlug) {
     const pathSlug = window.location.pathname
       .split('/')
@@ -1312,7 +1314,7 @@ function initInstagramSection() {
     isLiked = !isLiked;
     const baseLikes = reelsData[currentReelIndex].likes;
     const displayLikes = isLiked ? baseLikes + 1 : baseLikes;
-    
+
     if (reelLikeCount) reelLikeCount.textContent = displayLikes.toLocaleString();
     if (reelLikeBtn) reelLikeBtn.classList.toggle('liked', isLiked);
 

@@ -626,16 +626,6 @@ function renderHtmlTemplate(article, allArticles) {
             </a>
           </div>
 
-          <!-- Popular Guides List -->
-          <div class="sidebar-widget">
-            <h3 class="sidebar-widget-title">
-              <span>🔥 Popular Hair Guides</span>
-            </h3>
-            <div class="popular-posts-list">
-              ${sidebarPopularHtml}
-            </div>
-          </div>
-
           <!-- Clinic Location Card -->
           <div class="sidebar-widget">
             <h3 class="sidebar-widget-title">
@@ -731,6 +721,7 @@ function renderHtmlTemplate(article, allArticles) {
     </div>
   </footer>
 
+  <script src="global-components.js"></script>
   <script src="app.js"></script>
 </body>
 </html>

@@ -21,3 +21,8 @@ Thumbs.db
 # Raw Design files
 Brand Guide with copyright/
 *.ai
+
+# Local backups
+assets/images/backup_*/
+
+.vercel

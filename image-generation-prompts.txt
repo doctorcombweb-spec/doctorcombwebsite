@@ -1,0 +1,97 @@
+================================================================================
+DOCTOR COMB - IMAGE GENERATION PROMPTS SPECIFICATION
+Aspect Ratio, Placement & Detailed Creative Briefs
+================================================================================
+
+--------------------------------------------------------------------------------
+PART 1: THE 4 SERVICES IMAGES (BIG VISUAL + SMALL TAB CARD)
+--------------------------------------------------------------------------------
+Target Files in Project:
+  - Big visual (1200x896 px, 4:3 AR): assets/images/service_<name>.jpg
+  - Small tab card thumbnail (400x240 px): assets/images/thumb_<name>.jpg
+Framing Guideline:
+  - Extreme macro / close-up on head, scalp, hairline, and hands/tools.
+  - Face cropped out below the eyebrow line; zero focus on facial features.
+
+[Service 1: Hair Bonding]
+Filename: assets/images/service_bonding.jpg (and thumb_bonding.jpg)
+Aspect Ratio: 4:3 (or --ar 4:3)
+Prompt:
+Commercial macro photography in a luxury hair clinic, extreme close-up on the forehead hairline and scalp of a male client. A specialist wearing black nitrile hygienic gloves is using a precision spatula and applicator brush to carefully blend a transparent medical-grade liquid adhesive, seamlessly integrating an ultra-thin hair system onto the skin. The client's face is cropped out below the eyebrows; primary focus is on the realistic hair follicles, individual hair strands emerging naturally, and zero visible edge or seam. Warm studio trichology clinic lighting, 85mm macro lens, f/2.8, shallow depth of field, hyper-realistic, 8k --ar 4:3
+
+
+[Service 2: Hair Clipping]
+Filename: assets/images/service_clipping.jpg (and thumb_clipping.jpg)
+Aspect Ratio: 4:3 (or --ar 4:3)
+Prompt:
+Macro commercial photograph showing the non-surgical hair clipping method on the side and back of a man's head. Close-up on natural dark hair parted neatly, showing tiny, discreet black silicone-cushioned micro pressure snap clips sewn along the reinforced perimeter of a premium human hair patch securely latching onto natural hair strands. Hands of a stylist gently demonstrating the quick snap attachment. Face is completely out of frame. Razor-sharp texture of hair strands, clean scalp parting, authentic modern salon setting, soft diffused lighting, f/3.2, ultra-photorealistic --ar 4:3
+
+
+[Service 3: Hair Weaving]
+Filename: assets/images/service_weaving.jpg (and thumb_weaving.jpg)
+Aspect Ratio: 4:3 (or --ar 4:3)
+Prompt:
+Extreme macro close-up photograph of a hair weaving and interlocking track procedure in an upscale hair restoration studio. A master hair specialist's fingers use a delicate curved salon needle and fine soft micro-thread to stitch the perimeter base of a 100% human hair patch onto a micro-braided track of natural client hair. No facial features visible—tight focus on the meticulous track stitching, parting, and tension-free thread integration into the hair. Warm neutral clinical lighting, ultra-detailed hair texture, professional trichology catalog quality, 8k --ar 4:3
+
+
+[Service 4: Hair Taping]
+Filename: assets/images/service_taping.jpg (and thumb_taping.jpg)
+Aspect Ratio: 4:3 (or --ar 4:3)
+Prompt:
+Macro studio photograph showcasing the hair taping method for men's hair systems. Extreme close-up of a specialist's hands in gloves applying a strip of transparent, medical-grade double-sided contour tape along the poly border of a high-end Swiss lace hair system. One corner of the protective white backing liner is being gently peeled back to reveal the clear, residue-free hypoallergenic adhesive. Face completely out of frame; crisp focus on the transparent tape, poly perimeter, and fine hair strands. Bright, clean luxury aesthetic, commercial product photography, 8k --ar 4:3
+
+
+--------------------------------------------------------------------------------
+PART 2: THE 5 PRODUCT CATEGORY CARD IMAGES (HOME PAGE)
+--------------------------------------------------------------------------------
+Target Files in Project: assets/images/product_<category>.jpg
+Container: .product-image-container (4:3 Aspect Ratio, 800x600 px)
+
+[Category 1: Lace Hair Patches]
+Filename: assets/images/product_lace.jpg
+Aspect Ratio: 4:3 (or --ar 4:3)
+Prompt:
+High-end commercial product shot of a premium Swiss lace men's hair patch. Close-up overhead angle showing the underside base transitioning to the front: ultra-fine breathable honeycomb lace mesh, single bleached micro-knots, and natural dark hair strands flowing outward. Laid on a clean warm travertine stone pedestal in a luxury salon. Soft directional studio light highlighting the sheer, transparent, breathable lace grid. Commercial studio catalog aesthetic, hyper-detailed, --ar 4:3
+
+
+[Category 2: Full Border Patches]
+Filename: assets/images/product_mono.jpg
+Aspect Ratio: 4:3 (or --ar 4:3)
+Prompt:
+Studio catalog photograph of a men's full border hair patch system displayed on a minimalist warm grey display stand. Top-down angled macro view highlighting the reinforced perimeter polyurethane / PU border encircling a breathable fine monofilament mesh center. The durable, flexible edge and dense 100% real human hair with natural wave are in sharp focus. Luxury trichology branding aesthetic, soft shadows, pristine clarity, --ar 4:3
+
+
+[Category 3: Skin Based Patches (Mirage 0.03mm)]
+Filename: assets/images/product_mirage.jpg
+Aspect Ratio: 4:3 (or --ar 4:3)
+Prompt:
+Macro photograph demonstrating an ultra-thin 0.03mm polyurethane skin hair system base. A specialist's fingertips hold up the translucent second-skin membrane against the back of a hand to show how invisible and skin-like it is, with v-looped hair strands looking as though they are growing directly out of natural skin. No artificial mesh or knots. Warm natural lighting, medical-grade aesthetics, sharp focus on the feather-light membrane edge, 8k --ar 4:3
+
+
+[Category 4: Poly Patches]
+Filename: assets/images/product_poly.jpg
+Aspect Ratio: 4:3 (or --ar 4:3)
+Prompt:
+Commercial product photograph of a modern poly hair patch system for men. Clear view of the flexible, smooth polyurethane base featuring micro-porous breathable air vents. The base is clean, glossy, and waterproof, with natural dark human hair securely embedded. Displayed on a neutral beige marble background with subtle water mist droplets nearby to signify waterproof durability and easy wash care. Clean editorial lighting, 8k, --ar 4:3
+
+
+[Category 5: Men Wigs (Full Cap System)]
+Filename: assets/images/product_crown.jpg
+Aspect Ratio: 4:3 (or --ar 4:3)
+Prompt:
+Luxury salon commercial shot of a premium full-cap men's hair system (full wig). Displayed on a sleek matte black styling mannequin head, viewed from a stylish three-quarter back and side angle. Shows complete 360-degree scalp coverage with dense, naturally graduated human hair styled in a modern textured pompadour haircut. Warm spotlight illumination, premium aesthetic clinic backdrop, elegant and realistic, --ar 4:3
+
+
+--------------------------------------------------------------------------------
+PART 3: SINGLE FULL-SIZED PRODUCT PLACEHOLDER IMAGE
+--------------------------------------------------------------------------------
+Target File in Project: assets/images/product_placeholder.jpg
+Container: .product-tile-image-wrap (4:3 Aspect Ratio, 800x600 px)
+
+[Product Placeholder Image]
+Filename: assets/images/product_placeholder.jpg
+Aspect Ratio: 4:3 (or --ar 4:3)
+Prompt:
+Minimalist luxury studio product placeholder for a men's hair replacement brand. In the center, a perfectly styled, 100% real human hair system resting cleanly on a minimalist warm cream circular pedestal. Smooth gradient warm grey-beige studio backdrop, soft cinematic rim lighting highlighting the hair texture and volume. No person or face, pure aesthetic product presentation. Clean, sophisticated, high-end e-commerce catalog image, ultra-sharp 8k, --ar 4:3
+================================================================================
+

@@ -1,0 +1,18 @@
+# Studio (deployed separately under aura-hair-admin)
+studio/
+
+# Raw Design files & Guides
+Brand Guide with copyright/
+*.ai
+*.pdf
+AURA_Blog_Portal_SEO_Architecture.html
+image-generation-prompts.txt
+server.js
+
+# Local backups
+assets/images/backup_*/
+
+# OS & Git
+.git
+.DS_Store
+*.log

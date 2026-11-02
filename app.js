@@ -12,6 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initModalTriggers();
   initReviewModal();
   initSmoothScroll();
+  initInstantPageNavigation();
   renderHomepageBlogCards();
   initBlogSystem();
   initSingleBlogPostPage();
@@ -494,14 +495,57 @@ function initSmoothScroll() {
   if (!nav) return;
 
   window.addEventListener('scroll', () => {
-    if (window.scrollY > 50) {
-      nav.style.background = 'rgba(11, 12, 14, 0.98)';
-      nav.style.boxShadow = '0 10px 30px rgba(0,0,0,0.5)';
+    if (window.scrollY > 40) {
+      nav.style.background = 'rgba(15, 12, 12, 0.82)';
+      nav.style.boxShadow = '0 10px 30px rgba(0,0,0,0.45)';
+      nav.style.borderColor = 'rgba(255, 255, 255, 0.12)';
     } else {
-      nav.style.background = 'rgba(11, 12, 14, 0.92)';
-      nav.style.boxShadow = 'none';
+      nav.style.background = 'rgba(22, 16, 16, 0.68)';
+      nav.style.boxShadow = '0 4px 30px rgba(0, 0, 0, 0.25)';
+      nav.style.borderColor = 'rgba(255, 255, 255, 0.08)';
     }
   });
+}
+
+/**
+ * Instant Page Navigation: Prefetches HTML so changing pages from menu is 0ms
+ */
+function initInstantPageNavigation() {
+  const prefetched = new Set();
+  function prefetch(url) {
+    if (!url || prefetched.has(url) || url.startsWith('tel:') || url.startsWith('mailto:') || url.startsWith('http') || url.startsWith('#')) return;
+    prefetched.add(url);
+    const link = document.createElement('link');
+    link.rel = 'prefetch';
+    link.href = url;
+    document.head.appendChild(link);
+  }
+
+  // Prefetch main nav targets after initial page is idle
+  if ('requestIdleCallback' in window) {
+    requestIdleCallback(() => {
+      ['services.html', 'products.html', 'blogs.html', 'contact.html', 'index.html'].forEach(prefetch);
+    });
+  } else {
+    setTimeout(() => {
+      ['services.html', 'products.html', 'blogs.html', 'contact.html', 'index.html'].forEach(prefetch);
+    }, 1200);
+  }
+
+  // On hover/touch of any link, immediately prefetch
+  document.addEventListener('mouseover', (e) => {
+    const a = e.target.closest('a');
+    if (a && a.getAttribute('href') && !a.getAttribute('href').startsWith('#') && !a.getAttribute('href').startsWith('http')) {
+      prefetch(a.getAttribute('href'));
+    }
+  }, { passive: true });
+
+  document.addEventListener('touchstart', (e) => {
+    const a = e.target.closest('a');
+    if (a && a.getAttribute('href') && !a.getAttribute('href').startsWith('#') && !a.getAttribute('href').startsWith('http')) {
+      prefetch(a.getAttribute('href'));
+    }
+  }, { passive: true });
 }
 
 /* --------------------------------------------------------------------------
@@ -532,16 +576,16 @@ let BLOG_ARTICLES = {
       <h2>The Core Difference: Liquid Bond vs Adhesive Tape</h2>
       <p>When selecting a non-surgical hair replacement system, attachment method is everything. Both bonding and taping provide an undetectable, secure hold, but they cater to very different daily routines and scalp types.</p>
       
-      <h2>1. Hair Bonding (Medical Liquid Acrylics & Silicones)</h2>
-      <p>In hair bonding, a medical-grade liquid adhesive (such as Ghost Bond or Ultra Hold) is applied evenly along the shaved perimeter or scalp area. Once cured transparent, the lace or poly base is locked down firmly.</p>
+      <h2>1. Hair Bonding (Medical Liquid Adhesives)</h2>
+      <p>In hair bonding, a medical-grade liquid adhesive is applied evenly along the scalp attachment area. Once clear and dry, the lace or poly base is locked down firmly.</p>
       <ul>
         <li><strong>Lifespan of Hold:</strong> 4 to 6 weeks before requiring service.</li>
-        <li><strong>Best For:</strong> High-energy active individuals, gym-goers, swimmers, and heavy sweaters in Delhi's summer heat.</li>
-        <li><strong>Feel:</strong> Feels like a permanent part of your scalp with zero perimeter movement.</li>
+        <li><strong>Best For:</strong> High-energy active individuals, gym-goers, swimmers, and anyone who wants 24/7 fixed hair.</li>
+        <li><strong>Feel:</strong> Feels like a natural part of your scalp with zero slipping or movement.</li>
       </ul>
 
       <h2>2. Hair Taping (Medical Double-Sided Strips)</h2>
-      <p>Taping uses pre-cut contoured hypoallergenic tape rolls (such as Walker No-Shine or Supertape) placed around the perimeter base borders.</p>
+      <p>Taping uses skin-friendly, double-sided tape strips placed neatly along the outer edges of the base.</p>
       <ul>
         <li><strong>Lifespan of Hold:</strong> 2 to 4 weeks.</li>
         <li><strong>Best For:</strong> First-time wearers, clients with sensitive scalps, and individuals who want the option of easy home maintenance.</li>
@@ -603,11 +647,11 @@ let BLOG_ARTICLES = {
         <li><strong>Hair Bonding:</strong> Best for full-time active wearers. Zero movement, completely waterproof, lasts 4-6 weeks between services.</li>
         <li><strong>Hair Clipping:</strong> Best for clients who don't want to shave their bald spot or want to remove their system before sleeping. Uses silicone-padded micro-clips that snap onto existing hair.</li>
         <li><strong>Hair Taping:</strong> Best for clients wanting DIY maintenance at home. Strong hold for 2-3 weeks, hypoallergenic, and clean peeling.</li>
-        <li><strong>Hair Weaving:</strong> Completely chemical-free and tape-free. The system base is woven directly into a micro-braid track of your existing perimeter hair.</li>
+        <li><strong>Hair Weaving:</strong> Completely chemical-free and tape-free. The system base is woven directly into a neat track of your existing side and back hair.</li>
       </ul>
 
       <h2>Consultation is Crucial</h2>
-      <p>During your free private consultation at our Lajpat Nagar clinic, we evaluate your scalp oiliness, workout frequency, and natural hair density to recommend the ideal combination of base and fixing method.</p>
+      <p>During your free private consultation at our Lajpat Nagar clinic, we evaluate your scalp, daily routine, and natural hair density to recommend the ideal combination of base and fixing method.</p>
     `
   },
   'how-often-does-a-hair-patch-need-maintenance': {
@@ -624,11 +668,11 @@ let BLOG_ARTICLES = {
     takeaway: 'Hair systems require servicing every 3 to 4 weeks. In a 45-minute clinic session, the base is sanitized and refreshed, your biological hair underneath is trimmed, and new medical bonding is applied.',
     content: `
       <h2>Why Regular Servicing Matters</h2>
-      <p>Even though hair systems do not grow, your biological hair underneath continues its natural growth cycle of roughly half an inch per month. Over 3 to 4 weeks, this natural growth, combined with sweat and daily washes, gently loosens perimeter adhesives.</p>
+      <p>Even though hair systems do not grow, your biological hair underneath continues its natural growth cycle of roughly half an inch per month. Over 3 to 4 weeks, this natural growth, combined with sweat and daily washes, gently loosens the adhesive hold.</p>
 
       <h2>What Happens During a 45-Minute Maintenance Session?</h2>
       <ul>
-        <li><strong>Gentle System Detachment:</strong> Safe release sprays dissolve the perimeter bond painlessly without pulling a single strand of hair.</li>
+        <li><strong>Gentle System Detachment:</strong> Safe release sprays dissolve the adhesive bond painlessly without pulling a single strand of hair.</li>
         <li><strong>Scalp Cleansing & Exfoliation:</strong> Your scalp is thoroughly shampooed, exfoliated, and massaged with botanical tonics to prevent dandruff and itchiness.</li>
         <li><strong>Natural Hair Grooming:</strong> Your side and back biological hair is neatly trimmed and blended to match your desired fade or sideburn length.</li>
         <li><strong>Base Deep Sanitization:</strong> The base mesh is deep-cleansed, adhesive residue is removed, and hair strands receive a keratin conditioning treatment.</li>
@@ -654,7 +698,7 @@ let BLOG_ARTICLES = {
 
       <h2>The Safe Removal Process</h2>
       <ul>
-        <li><strong>Step 1 - Apply Release Solvent:</strong> Spray medical citrus solvent (like C-22 or Pure solvent) along the perimeter hairline and let it penetrate for 60 seconds.</li>
+        <li><strong>Step 1 - Apply Release Solvent:</strong> Spray gentle adhesive solvent along the outer edges of the hairline and let it work for 60 seconds.</li>
         <li><strong>Step 2 - Lift Gently From Back to Front:</strong> Using fingertip pads (never fingernails), gently roll back the base from the crown forward. The adhesive will release smoothly like tape off glass.</li>
         <li><strong>Step 3 - Cleanse Residue:</strong> Wipe any residual adhesive from the scalp with a soft cotton pad and wash with balancing clarifying shampoo.</li>
       </ul>

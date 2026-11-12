@@ -20,6 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initBlogSystem();
   initSingleBlogPostPage();
   initInstagramSection();
+  initFaqAccordion();
   loadSanityBlogs();
 });
 
@@ -345,10 +346,10 @@ function handleFormSubmit(e) {
   const source = document.getElementById('formSource') ? document.getElementById('formSource').value : 'Website';
 
   // Build clean WhatsApp message
-  const message = `Hello Doctor Comb!%0A%0AI would like to book a Free VIP Consultation.%0A%0A*Name:* ${encodeURIComponent(name)}%0A*Phone:* ${encodeURIComponent(phone)}%0A*Clinic Location:* Lajpat Nagar II, Central Market, New Delhi%0A*Interested In:* ${encodeURIComponent(source)}%0A%0APlease confirm my appointment time.`;
+  const message = `Hello Doctor Comb!%0A%0AI would like to book a Free VIP Consultation.%0A%0A*Name:* ${encodeURIComponent(name)}%0A*Phone:* ${encodeURIComponent(phone)}%0A*Clinic Location:* 48, First Floor, Gurudwara Road, Opp. Radhu Palace, West Guru Angad Nagar, Nearest Metro Nirman Vihar, Delhi – 110092%0A*Interested In:* ${encodeURIComponent(source)}%0A%0APlease confirm my appointment time.`;
 
   // Open WhatsApp in new tab
-  const waUrl = `https://wa.me/919811234567?text=${message}`;
+  const waUrl = `https://wa.me/919717114138?text=${message}`;
   window.open(waUrl, '_blank');
 
   closeConsultationModal();
@@ -460,7 +461,15 @@ function handleReviewSubmit(e) {
         </div>
       </div>
     `;
-    track.prepend(newCard);
+    const cloneCard = newCard.cloneNode(true);
+    const existingCards = track.querySelectorAll('.review-card');
+    const mid = Math.floor(existingCards.length / 2);
+    track.insertBefore(newCard, existingCards[0] || null);
+    if (existingCards[mid]) {
+      track.insertBefore(cloneCard, existingCards[mid]);
+    } else {
+      track.appendChild(cloneCard);
+    }
   }
 
   // Show success message inside modal
@@ -494,19 +503,31 @@ window.handleReviewSubmit = handleReviewSubmit;
    7. Smooth Scrolling & Active State
    -------------------------------------------------------------------------- */
 function initSmoothScroll() {
-  const nav = document.getElementById('navbar');
-  if (!nav) return;
+  // Sticky scroll listeners removed per user specification
+}
 
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > 40) {
-      nav.style.background = 'rgba(15, 12, 12, 0.82)';
-      nav.style.boxShadow = '0 10px 30px rgba(0,0,0,0.45)';
-      nav.style.borderColor = 'rgba(255, 255, 255, 0.12)';
-    } else {
-      nav.style.background = 'rgba(22, 16, 16, 0.68)';
-      nav.style.boxShadow = '0 4px 30px rgba(0, 0, 0, 0.25)';
-      nav.style.borderColor = 'rgba(255, 255, 255, 0.08)';
-    }
+/**
+ * FAQ Accordion Toggle
+ */
+function initFaqAccordion() {
+  const faqItems = document.querySelectorAll('.services-faq-item');
+  if (!faqItems.length) return;
+
+  faqItems.forEach(item => {
+    const q = item.querySelector('.services-faq-question');
+    if (!q) return;
+
+    q.addEventListener('click', () => {
+      const isOpen = item.classList.contains('open');
+      // Close sibling items in the same container
+      const container = item.closest('.services-faq-accordion');
+      if (container) {
+        container.querySelectorAll('.services-faq-item').forEach(i => i.classList.remove('open'));
+      }
+      if (!isOpen) {
+        item.classList.add('open');
+      }
+    });
   });
 }
 
@@ -607,7 +628,7 @@ let BLOG_ARTICLES = {
     readTime: '4 min read',
     img: 'assets/images/blog_card_2.jpg',
     author: 'Dr. Meera Sharma',
-    authorRole: 'Chief Hair Specialist • Doctor Comb Lajpat Nagar',
+    authorRole: 'Chief Hair Specialist • Doctor Comb Nirman Vihar',
     authorAvatar: 'Dr',
     excerpt: 'Simple daily and weekly care tips to keep your hair system clean, natural and long lasting.',
     takeaway: 'With cool or lukewarm water, sulfate-free moisturizing cleansers, and downward gliding motions, your hair system will retain its softness, shine, and knot strength for 10 to 14 months.',
@@ -654,7 +675,7 @@ let BLOG_ARTICLES = {
       </ul>
 
       <h2>Consultation is Crucial</h2>
-      <p>During your free private consultation at our Lajpat Nagar clinic, we evaluate your scalp, daily routine, and natural hair density to recommend the ideal combination of base and fixing method.</p>
+      <p>During your free private consultation at our Nirman Vihar clinic, we evaluate your scalp, daily routine, and natural hair density to recommend the ideal combination of base and fixing method.</p>
     `
   },
   'how-often-does-a-hair-patch-need-maintenance': {
@@ -665,7 +686,7 @@ let BLOG_ARTICLES = {
     readTime: '4 min read',
     img: 'assets/images/blog_card_4.jpg',
     author: 'Dr. Meera Sharma',
-    authorRole: 'Chief Hair Specialist • Doctor Comb Lajpat Nagar',
+    authorRole: 'Chief Hair Specialist • Doctor Comb Nirman Vihar',
     authorAvatar: 'Dr',
     excerpt: 'Find out how often you should service your hair system and what it involves.',
     takeaway: 'Hair systems require servicing every 3 to 4 weeks. In a 45-minute clinic session, the base is sanitized and refreshed, your biological hair underneath is trimmed, and new medical bonding is applied.',
@@ -718,7 +739,7 @@ let BLOG_ARTICLES = {
     readTime: '6 min read',
     img: 'assets/images/blog_card_6.jpg',
     author: 'Dr. Meera Sharma',
-    authorRole: 'Chief Hair Specialist • Doctor Comb Lajpat Nagar',
+    authorRole: 'Chief Hair Specialist • Doctor Comb Nirman Vihar',
     authorAvatar: 'Dr',
     excerpt: 'The most important questions to ask so you can make an informed and confident decision.',
     takeaway: 'Before investing in a hair system, ask 5 essential questions: Is the hair 100% Remy Human Hair? What is the base breathability? Are consultations private? What are the recurring service charges? And is there a trial guarantee?',
@@ -745,7 +766,7 @@ let BLOG_ARTICLES = {
     readTime: '5 min read',
     img: 'assets/images/blog_consultation.jpg',
     author: 'Dr. Meera Sharma',
-    authorRole: 'Chief Hair Specialist • Doctor Comb Lajpat Nagar',
+    authorRole: 'Chief Hair Specialist • Doctor Comb Nirman Vihar',
     authorAvatar: 'Dr',
     excerpt: 'Looking for a natural hair patch in Delhi NCR? Learn about French lace, monofilament, and ultra-thin skin systems, what prices to expect, and how to avoid fake synthetic hair.',
     takeaway: 'Non-surgical hair systems give you instant, full-density natural hair in just 45 minutes without surgery, scars, or downtime. In Delhi NCR, prices range from ₹12,000 to ₹35,000 depending on base type and 100% human hair quality.',
@@ -787,7 +808,7 @@ let BLOG_ARTICLES = {
     readTime: '7 min read',
     img: 'assets/images/blog_hero.jpg',
     author: 'Dr. Meera Sharma',
-    authorRole: 'Chief Hair Specialist • Doctor Comb Lajpat Nagar',
+    authorRole: 'Chief Hair Specialist • Doctor Comb Nirman Vihar',
     authorAvatar: 'Dr',
     excerpt: 'Comparing surgical risks, donor area limitations, painful healing times, total costs, and final hair density between non-surgical human hair patching and FUE surgery.',
     takeaway: 'Hair transplants require painful surgery, a healthy donor area, and 9-12 months of waiting with unpredictable density. A hair patch delivers guaranteed, high-density natural volume in 45 minutes.',
@@ -801,7 +822,7 @@ let BLOG_ARTICLES = {
     readTime: '4 min read',
     img: 'assets/images/what_is_hair_patching.jpg',
     author: 'Dr. Meera Sharma',
-    authorRole: 'Chief Hair Specialist • Doctor Comb Lajpat Nagar',
+    authorRole: 'Chief Hair Specialist • Doctor Comb Nirman Vihar',
     authorAvatar: 'Dr',
     excerpt: 'Graduated front hairline density, bleached knots, custom texture blending, and matte adhesives: the 4 golden rules our master stylists use for wedding and television clients.',
     takeaway: 'Achieving an undetectable hairline relies on graduated density at the front rim, bleached micro-knots, and exact hair color undertone matching by an experienced stylist.',

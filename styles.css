@@ -273,7 +273,7 @@ button {
    NAVBAR (GLASS LOOK, FAST ACCESS)
    ========================================================================== */
 .navbar {
-  position: sticky;
+  position: relative;
   top: 0;
   left: 0;
   right: 0;
@@ -662,49 +662,265 @@ button {
 }
 
 /* ==========================================================================
-   WHAT IS HAIR PATCHING? (EXACT BANNER SHOWCASE)
+   WHAT IS HAIR PATCH & HAIR WIG? (DUAL COMPARISON SHOWCASE)
    ========================================================================== */
 .what-is-section {
   background: var(--bg-black);
   position: relative;
 }
 
-.what-is-banner-card {
-  background: #FCFAF6;
-  border-radius: var(--radius-xl);
+.what-is-compare-card {
+  background: #FAF4EE;
+  border-radius: clamp(24px, 3.5vw, 44px);
   overflow: hidden;
-  display: grid;
-  grid-template-columns: 1fr;
-  box-shadow: 0 24px 60px -12px rgba(0, 0, 0, 0.65), 0 0 0 1px rgba(255, 255, 255, 0.1);
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 24px 60px -12px rgba(0, 0, 0, 0.65), 0 0 0 1px rgba(255, 255, 255, 0.08);
+  position: relative;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 @media (min-width: 992px) {
-  .what-is-banner-card {
-    grid-template-columns: 58.9% 41.1%;
-    min-height: 480px;
+  .what-is-compare-card {
+    display: grid;
+    grid-template-columns: minmax(280px, 1fr) minmax(360px, 1.35fr) minmax(280px, 1fr);
     align-items: stretch;
+    min-height: 520px;
   }
 }
 
-.what-is-banner-visual {
+.what-is-col {
+  display: flex;
+  flex-direction: column;
+  padding: clamp(28px, 4vw, 44px);
   position: relative;
-  width: 100%;
-  height: auto;
-  aspect-ratio: 603 / 512;
-  background: #1B1414;
-  overflow: hidden;
+  z-index: 2;
 }
 
 @media (min-width: 992px) {
-  .what-is-banner-visual {
-    height: 100%;
-    aspect-ratio: auto;
-    min-height: 480px;
+  .what-is-patch-col {
+    padding: 44px 0 44px clamp(32px, 3.5vw, 56px);
+    justify-content: space-between;
+  }
+
+  .what-is-wig-col {
+    padding: 44px clamp(32px, 3.5vw, 56px) 44px 0;
+    justify-content: flex-end;
+  }
+
+  .what-is-wig-col .what-is-col-inner {
+    margin-top: clamp(48px, 6vw, 96px);
   }
 }
 
-.what-is-banner-img {
+.what-is-col-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  max-width: 380px;
+}
+
+.what-is-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #FCE4D0;
+  color: #1F1714;
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 6px 16px;
+  border-radius: 9999px;
+  margin-bottom: 16px;
+  box-shadow: 0 2px 6px rgba(225, 170, 114, 0.2);
+}
+
+.what-is-title {
+  font-family: var(--font-heading);
+  font-size: clamp(2.35rem, 3.2vw, 3.3rem);
+  font-weight: 900;
+  line-height: 1.05;
+  letter-spacing: -0.025em;
+  color: #1F1714;
+  margin: 0 0 16px 0;
+  text-transform: uppercase;
+}
+
+.what-is-desc {
+  font-family: var(--font-body);
+  font-size: clamp(1.08rem, 1.25vw, 1.2rem);
+  color: #4A3E38;
+  line-height: 1.5;
+  font-weight: 500;
+  margin: 0 0 28px 0;
+  max-width: 380px;
+}
+
+.what-is-features {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 32px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+}
+
+.what-is-feature-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  color: #1F1714;
+}
+
+.what-is-feature-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #1F1714;
+  flex-shrink: 0;
+}
+
+.what-is-feature-icon svg {
+  width: 22px;
+  height: 22px;
+  display: block;
+}
+
+.what-is-feature-text {
+  font-family: var(--font-body);
+  font-size: clamp(1.05rem, 1.2vw, 1.15rem);
+  font-weight: 700;
+  color: #1F1714;
+  line-height: 1.35;
+}
+
+.what-is-pill-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  background: linear-gradient(135deg, #F3B274 0%, #E69A57 100%);
+  color: #1F1714;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 15px 30px;
+  border-radius: 9999px;
+  box-shadow: 0 8px 22px rgba(230, 154, 87, 0.4);
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease, background 0.25s ease;
+  width: fit-content;
+}
+
+.what-is-pill-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(230, 154, 87, 0.55);
+  background: linear-gradient(135deg, #F5BB85 0%, #EAA464 100%);
+  color: #1F1714;
+}
+
+.what-is-pill-btn:active {
+  transform: translateY(0);
+}
+
+.what-is-pill-btn .what-is-btn-arrow {
+  transition: transform 0.25s ease;
+}
+
+.what-is-pill-btn:hover .what-is-btn-arrow {
+  transform: translateX(4px);
+}
+
+/* Center visual column */
+.what-is-visual-col {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: #F4ECE4;
+  min-height: 380px;
+  padding: 24px 16px;
+}
+
+@media (min-width: 992px) {
+  .what-is-visual-col {
+    height: 100%;
+    min-height: 540px;
+  }
+}
+
+.what-is-cutouts-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+  max-width: 440px;
+  align-items: center;
+  justify-content: center;
+}
+
+.what-is-cutout-card {
+  width: 100%;
+  background: #FAF4EE;
+  border-radius: 20px;
+  padding: 16px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(79, 56, 40, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.what-is-cutout-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 32px rgba(79, 56, 40, 0.12);
+}
+
+.what-is-cutout-img-wrap {
+  width: 100%;
+  height: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.what-is-cutout-img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  display: block;
+  filter: drop-shadow(0 10px 18px rgba(0, 0, 0, 0.12));
+}
+
+.what-is-cutout-label {
+  margin-top: 10px;
+  font-family: var(--font-heading);
+  font-size: 0.85rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: #1F1714;
+  text-transform: uppercase;
+  background: rgba(225, 170, 114, 0.22);
+  padding: 5px 16px;
+  border-radius: 999px;
+}
+
+.what-is-cutout-divider {
+  width: 60px;
+  height: 2px;
+  background: rgba(79, 56, 40, 0.15);
+  border-radius: 2px;
+}
+
+.what-is-visual-img {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -712,86 +928,61 @@ button {
   display: block;
 }
 
-.what-is-banner-content {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: clamp(36px, 5vw, 64px) clamp(28px, 4vw, 56px);
-  background: #FCFAF6;
+@media (max-width: 991px) {
+  .what-is-visual-col {
+    order: 2;
+    max-height: none;
+    min-height: 280px;
+    padding: 24px 16px;
+  }
+
+  .what-is-cutouts-container {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px;
+  }
+
+  .what-is-cutout-card {
+    flex: 1 1 200px;
+    max-width: 260px;
+  }
+
+  .what-is-cutout-img-wrap {
+    height: 140px;
+  }
+
+  .what-is-cutout-divider {
+    display: none;
+  }
+
+  .what-is-patch-col {
+    order: 1;
+    border-bottom: 1px solid rgba(74, 62, 56, 0.08);
+  }
+
+  .what-is-wig-col {
+    order: 3;
+    border-top: 1px solid rgba(74, 62, 56, 0.08);
+  }
 }
 
-.what-is-banner-inner {
-  max-width: 440px;
+@media (max-width: 600px) {
+  .what-is-cutout-card {
+    flex: 1 1 100%;
+    max-width: 100%;
+  }
+
+  .what-is-cutout-img-wrap {
+    height: 160px;
+  }
 }
 
-.what-is-banner-title {
-  display: flex;
-  flex-direction: column;
-  font-family: var(--font-heading);
-  font-size: clamp(2.4rem, 4vw, 3.8rem);
-  font-weight: 900;
-  line-height: 0.98;
-  letter-spacing: -0.025em;
-  margin-bottom: 0;
-  text-transform: uppercase;
-}
-
-.what-is-banner-title .title-dark {
-  color: #1B1414;
-}
-
-.what-is-banner-title .title-green {
-  color: #4F3828;
-}
-
-.what-is-banner-desc {
-  font-family: var(--font-body);
-  font-size: clamp(1.05rem, 1.35vw, 1.25rem);
-  color: #4F3828;
-  line-height: 1.45;
-  font-weight: 500;
-  max-width: 380px;
-  margin-top: clamp(16px, 2vw, 24px);
-  margin-bottom: clamp(24px, 3vw, 36px);
-}
-
-.what-is-banner-btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 12px;
-  background: #E1AA72;
-  color: #281E1E;
-  font-family: var(--font-body);
-  font-size: 0.95rem;
-  font-weight: 700;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  text-decoration: none;
-  padding: 15px 30px;
-  border-radius: 8px;
-  width: fit-content;
-  box-shadow: 0 4px 14px rgba(79, 56, 40, 0.3);
-  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.what-is-banner-btn:hover {
-  background: #EEB77F;
-  transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(79, 56, 40, 0.45);
-  color: #281E1E;
-}
-
-.what-is-banner-btn:active {
-  transform: translateY(0);
-}
-
-.what-is-banner-btn .btn-arrow-icon {
-  transition: transform 0.25s ease;
-}
-
-.what-is-banner-btn:hover .btn-arrow-icon {
-  transform: translateX(4px);
+/* Legacy aliases for backwards-compatibility */
+.what-is-banner-card {
+  background: #FAF4EE;
+  border-radius: var(--radius-xl);
+  overflow: hidden;
 }
 
 /* ==========================================================================
@@ -1169,21 +1360,11 @@ button {
 
 @media (min-width: 1100px) {
   .products-grid {
-    grid-template-columns: repeat(6, 1fr);
+    grid-template-columns: repeat(3, 1fr);
   }
 
-  .products-grid .product-card:nth-child(1),
-  .products-grid .product-card:nth-child(2),
-  .products-grid .product-card:nth-child(3) {
-    grid-column: span 2;
-  }
-
-  .products-grid .product-card:nth-child(4) {
-    grid-column: 2 / span 2;
-  }
-
-  .products-grid .product-card:nth-child(5) {
-    grid-column: 4 / span 2;
+  .products-grid .product-card {
+    grid-column: auto;
   }
 }
 
@@ -2201,8 +2382,10 @@ button {
   display: flex;
   gap: 28px;
   width: max-content;
-  animation: reviewMarquee 38s linear infinite;
+  animation: reviewMarquee 42s linear infinite;
   padding: 10px 0;
+  will-change: transform;
+  transform: translate3d(0, 0, 0);
 }
 
 .reviews-slider-track:hover {
@@ -2211,11 +2394,11 @@ button {
 
 @keyframes reviewMarquee {
   0% {
-    transform: translateX(0%);
+    transform: translate3d(0, 0, 0);
   }
 
   100% {
-    transform: translateX(-50%);
+    transform: translate3d(-50%, 0, 0);
   }
 }
 

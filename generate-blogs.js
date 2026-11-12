@@ -55,7 +55,7 @@ const BASE_ARTICLES = [
     readTime: '4 min read',
     img: 'assets/images/blog_card_2.jpg',
     author: 'Dr. Meera Sharma',
-    authorRole: 'Chief Hair Specialist • Doctor Comb Lajpat Nagar',
+    authorRole: 'Chief Hair Specialist • Doctor Comb Nirman Vihar',
     authorAvatar: 'Dr',
     excerpt: 'Simple daily and weekly care tips to keep your hair system clean, natural and long lasting.',
     takeaway: 'With cool or lukewarm water, sulfate-free moisturizing cleansers, and downward gliding motions, your hair system will retain its softness, shine, and knot strength for 10 to 14 months.',
@@ -102,7 +102,7 @@ const BASE_ARTICLES = [
       </ul>
 
       <h2>Consultation is Crucial</h2>
-      <p>During your free private consultation at our Lajpat Nagar clinic, we evaluate your scalp oiliness, workout frequency, and natural hair density to recommend the ideal combination of base and fixing method.</p>
+      <p>During your free private consultation at our Nirman Vihar clinic, we evaluate your scalp oiliness, workout frequency, and natural hair density to recommend the ideal combination of base and fixing method.</p>
     `
   },
   {
@@ -113,7 +113,7 @@ const BASE_ARTICLES = [
     readTime: '4 min read',
     img: 'assets/images/blog_card_4.jpg',
     author: 'Dr. Meera Sharma',
-    authorRole: 'Chief Hair Specialist • Doctor Comb Lajpat Nagar',
+    authorRole: 'Chief Hair Specialist • Doctor Comb Nirman Vihar',
     authorAvatar: 'Dr',
     excerpt: 'Find out how often you should service your hair system and what it involves.',
     takeaway: 'Hair systems require servicing every 3 to 4 weeks. In a 45-minute clinic session, the base is sanitized and refreshed, your biological hair underneath is trimmed, and new medical bonding is applied.',
@@ -166,7 +166,7 @@ const BASE_ARTICLES = [
     readTime: '6 min read',
     img: 'assets/images/blog_card_6.jpg',
     author: 'Dr. Meera Sharma',
-    authorRole: 'Chief Hair Specialist • Doctor Comb Lajpat Nagar',
+    authorRole: 'Chief Hair Specialist • Doctor Comb Nirman Vihar',
     authorAvatar: 'Dr',
     excerpt: 'The most important questions to ask so you can make an informed and confident decision.',
     takeaway: 'Before investing in a hair system, ask 5 essential questions: Is the hair 100% Remy Human Hair? What is the base breathability? Are consultations private? What are the recurring service charges? And is there a trial guarantee?',
@@ -192,7 +192,7 @@ const BASE_ARTICLES = [
     readTime: '5 min read',
     img: 'assets/images/blog_consultation.jpg',
     author: 'Dr. Meera Sharma',
-    authorRole: 'Chief Hair Specialist • Doctor Comb Lajpat Nagar',
+    authorRole: 'Chief Hair Specialist • Doctor Comb Nirman Vihar',
     authorAvatar: 'Dr',
     excerpt: 'Looking for a natural hair patch in Delhi NCR? Learn about French lace, monofilament, and ultra-thin skin systems, what prices to expect, and how to avoid fake synthetic hair.',
     takeaway: 'Non-surgical hair systems give you instant, full-density natural hair in just 45 minutes without surgery, scars, or downtime. In Delhi NCR, prices range from ₹12,000 to ₹35,000 depending on base type and 100% human hair quality.',
@@ -243,7 +243,7 @@ const BASE_ARTICLES = [
     readTime: '7 min read',
     img: 'assets/images/blog_hero.jpg',
     author: 'Dr. Meera Sharma',
-    authorRole: 'Chief Hair Specialist • Doctor Comb Lajpat Nagar',
+    authorRole: 'Chief Hair Specialist • Doctor Comb Nirman Vihar',
     authorAvatar: 'Dr',
     excerpt: 'Comparing surgical risks, donor area limitations, painful healing times, total costs, and final hair density between non-surgical human hair patching and FUE surgery.',
     takeaway: 'Hair transplants require painful surgery, a healthy donor area, and 9-12 months of waiting with unpredictable density. A hair patch delivers guaranteed, high-density natural volume in 45 minutes with zero surgical risks.',
@@ -277,7 +277,7 @@ const BASE_ARTICLES = [
     readTime: '4 min read',
     img: 'assets/images/what_is_hair_patching.jpg',
     author: 'Dr. Meera Sharma',
-    authorRole: 'Chief Hair Specialist • Doctor Comb Lajpat Nagar',
+    authorRole: 'Chief Hair Specialist • Doctor Comb Nirman Vihar',
     authorAvatar: 'Dr',
     excerpt: 'Graduated front hairline density, bleached knots, custom texture blending, and matte adhesives: the 4 golden rules our master stylists use for wedding and television clients.',
     takeaway: 'Achieving an undetectable hairline relies on graduated density at the front rim, bleached micro-knots, and exact hair color undertone matching by an experienced stylist.',
@@ -479,11 +479,11 @@ function renderHtmlTemplate(article, allArticles) {
       </nav>
 
       <div class="nav-actions">
-        <a href="tel:+919811234567" class="btn btn-outline btn-md" style="font-weight: 800;">
-          <span>📞 +91 98112 34567</span>
+        <a href="tel:+919717114138" class="btn btn-outline btn-md" style="font-weight: 800;">
+          <span>📞 +91 97171 14138</span>
         </a>
 
-        <a href="https://wa.me/919811234567?text=Hello%20Doctor%20Comb%2C%20I%20have%20a%20question%20regarding%20hair%20patch%20systems" target="_blank" rel="noopener" class="btn btn-whatsapp btn-md">
+        <a href="https://wa.me/919717114138?text=Hello%20Doctor%20Comb%2C%20I%20have%20a%20question%20regarding%20hair%20patch%20systems" target="_blank" rel="noopener" class="btn btn-whatsapp btn-md">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.664-.699c.971.53 1.77.814 2.796.814 3.181 0 5.767-2.586 5.768-5.768zm7.398 5.766c0 4.079-3.32 7.399-7.399 7.399-1.24 0-2.433-.314-3.486-.889l-4.544 1.192 1.217-4.444c-.66-1.121-1.026-2.404-1.026-3.738 0-4.079 3.32-7.399 7.399-7.399 4.079 0 7.399 3.32 7.399 7.399z"/></svg>
           <span>WhatsApp</span>
         </a>
@@ -538,7 +538,7 @@ function renderHtmlTemplate(article, allArticles) {
             <div class="author-large-avatar">${(article.authorAvatar || article.author || 'Dr').slice(0, 2)}</div>
             <div class="author-bar-details">
               <div class="author-name">${article.author || 'Dr. Meera Sharma'}</div>
-              <div class="author-meta">${article.authorRole || 'Chief Hair Specialist • Doctor Comb Lajpat Nagar'}</div>
+              <div class="author-meta">${article.authorRole || 'Chief Hair Specialist • Doctor Comb Nirman Vihar'}</div>
             </div>
           </div>
 
@@ -599,8 +599,8 @@ function renderHtmlTemplate(article, allArticles) {
           <!-- Mid-Article WhatsApp Banner -->
           <div class="blog-cta-banner-card">
             <h3>Want a Free Scalp Analysis in Delhi NCR?</h3>
-            <p>Visit our private VIP cabins at Lajpat Nagar II or send your photos on WhatsApp for an instant confidential quote.</p>
-            <a href="https://wa.me/919811234567?text=Hello%20Doctor%20Comb%2C%20I%20want%20to%20get%20a%20free%20scalp%20analysis" target="_blank" rel="noopener" class="btn btn-whatsapp btn-lg">
+            <p>Visit our private VIP cabins at Nirman Vihar, Delhi or send your photos on WhatsApp for an instant confidential quote.</p>
+            <a href="https://wa.me/919717114138?text=Hello%20Doctor%20Comb%2C%20I%20want%20to%20get%20a%20free%20scalp%20analysis" target="_blank" rel="noopener" class="btn btn-whatsapp btn-lg">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.664-.699c.971.53 1.77.814 2.796.814 3.181 0 5.767-2.586 5.768-5.768zm7.398 5.766c0 4.079-3.32 7.399-7.399 7.399-1.24 0-2.433-.314-3.486-.889l-4.544 1.192 1.217-4.444c-.66-1.121-1.026-2.404-1.026-3.738 0-4.079 3.32-7.399 7.399-7.399 4.079 0 7.399 3.32 7.399 7.399z"/></svg>
               <span>Book Free Confidential Consultation</span>
             </a>
@@ -618,11 +618,11 @@ function renderHtmlTemplate(article, allArticles) {
             <p class="sidebar-consult-desc">
               Walk in bald, walk out with 100% natural, undetectable human hair. 100% private VIP cabins.
             </p>
-            <a href="https://wa.me/919811234567?text=Hello%20Doctor%20Comb%2C%20I%20want%20to%20book%20a%201-hour%20transformation%20appointment" target="_blank" rel="noopener" class="btn btn-whatsapp btn-md" style="width: 100%; justify-content: center; margin-bottom: 10px;">
+            <a href="https://wa.me/919717114138?text=Hello%20Doctor%20Comb%2C%20I%20want%20to%20book%20a%201-hour%20transformation%20appointment" target="_blank" rel="noopener" class="btn btn-whatsapp btn-md" style="width: 100%; justify-content: center; margin-bottom: 10px;">
               <span>Chat on WhatsApp</span>
             </a>
-            <a href="tel:+919811234567" class="btn btn-outline btn-md" style="width: 100%; justify-content: center; font-weight: 800;">
-              <span>Call: +91 98112 34567</span>
+            <a href="tel:+919717114138" class="btn btn-outline btn-md" style="width: 100%; justify-content: center; font-weight: 800;">
+              <span>Call: +91 97171 14138</span>
             </a>
           </div>
 
@@ -633,12 +633,12 @@ function renderHtmlTemplate(article, allArticles) {
             </h3>
             <p style="color: #374151; font-size: 0.95rem; line-height: 1.5; margin-bottom: 12px;">
               <strong style="color: #111827;">Doctor Comb</strong><br>
-              B-24, Central Market, Lajpat Nagar II, New Delhi 110024
+              48, First Floor, Gurudwara Road, Opp. Radhu Palace, West Guru Angad Nagar, Nearest Metro Nirman Vihar, Delhi – 110092
             </p>
             <p class="clinic-timing" style="color: #4B5563; font-size: 0.85rem; margin-bottom: 16px;">
-              ⏱ Open Tuesday – Sunday: 10:30 AM – 8:00 PM (Monday Closed)
+              ⏱ Open Monday – Sunday: 10:00 AM – 8:00 PM (Tuesday Closed)
             </p>
-            <a href="https://www.google.com/maps/dir/?api=1&destination=B-24,+Central+Market,+Lajpat+Nagar+II,+New+Delhi+110024" target="_blank" rel="noopener" class="btn btn-outline btn-sm" style="width: 100%; justify-content: center;">
+            <a href="https://maps.app.goo.gl/L9i6q9FUrxUS6i3t8" target="_blank" rel="noopener" class="btn btn-outline btn-sm" style="width: 100%; justify-content: center;">
               <span>Get Google Directions ↗</span>
             </a>
           </div>
@@ -681,7 +681,7 @@ function renderHtmlTemplate(article, allArticles) {
             Natural, non-surgical hair replacement in under 60 minutes. 100% natural human hair systems customized to your hairline, skin tone, and lifestyle.
           </p>
           <div style="font-weight: 800; color: #FFFFFF; font-size: 1.15rem; margin-top: 14px;">
-            📞 Helpline: <a href="tel:+919811234567" style="color: #FFFFFF; text-decoration: none;">+91 98112 34567</a>
+            📞 Helpline: <a href="tel:+919717114138" style="color: #FFFFFF; text-decoration: none;">+91 97171 14138</a>
           </div>
         </div>
 
@@ -700,10 +700,10 @@ function renderHtmlTemplate(article, allArticles) {
         <div>
           <h3 class="footer-col-title">Our Clinic Location</h3>
           <ul class="footer-links">
-            <li style="color: #FFFFFF; font-weight: 600; line-height: 1.5;">Doctor Comb<br>B-24, Central Market, Lajpat Nagar II,<br>New Delhi 110024</li>
-            <li><a href="https://www.google.com/maps/dir/?api=1&destination=B-24,+Central+Market,+Lajpat+Nagar+II,+New+Delhi+110024" target="_blank" rel="noopener" style="color: var(--brand-primary-ink); font-weight: 700;">Get Google Directions ↗</a></li>
+            <li style="color: #FFFFFF; font-weight: 600; line-height: 1.5;">Doctor Comb<br>48, First Floor, Gurudwara Road,<br>Opp. Radhu Palace, West Guru Angad Nagar,<br>Nearest Metro Nirman Vihar, Delhi – 110092</li>
+            <li><a href="https://maps.app.goo.gl/L9i6q9FUrxUS6i3t8" target="_blank" rel="noopener" style="color: var(--brand-primary-ink); font-weight: 700;">Get Google Directions ↗</a></li>
             <li style="margin-top: 10px; color: #94A3B8; font-size: 0.88rem;">
-              Tue – Sun: 10:30 AM – 8:00 PM<br>(Monday Closed)
+              Mon – Sun: 10:00 AM – 8:00 PM<br>(Tuesday Closed)
             </li>
           </ul>
         </div>
@@ -711,7 +711,7 @@ function renderHtmlTemplate(article, allArticles) {
       </div>
 
       <div class="footer-bottom">
-        <div>© 2026 Doctor Comb. All Rights Reserved.</div>
+        <div>This website is owned and managed by Doctor Comb</div>
         <div style="display: flex; gap: 16px; align-items: center; flex-wrap: wrap;">
           <span>100% Confidential VIP Care</span>
           <span>•</span>
